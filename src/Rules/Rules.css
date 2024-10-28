@@ -1,0 +1,51 @@
+.helper , .rules{
+    direction: rtl;
+    /* width: 0%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.btn{
+    padding: 10px 60px;
+    border-radius: 16px;
+    border: 1px solid #06c8d9;
+    transition: all .5s;
+    background-color: #fcfeff;
+    cursor: pointer;
+    color: black;
+}
+.btn:hover{
+    background-color: #06c8d9;
+    color: #fcfeff;
+}
+.explain-container{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid; */
+    /* border-radius: 32px; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.notes{
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.age-container{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    direction: rtl;
+    /* border: 1px solid; */
+}
+.age-container input{
+    margin: 10px;
+}

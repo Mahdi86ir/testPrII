@@ -1,0 +1,13 @@
+.results{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+    gap: 30px;
+}
+.results h2{
+    font-size: 30px;
+}

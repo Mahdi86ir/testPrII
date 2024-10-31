@@ -9,8 +9,17 @@ interface RulesProps {
 function UserAge({startQuiz}:RulesProps){
     const [userAge, setUserAge] = useState(0)
     const [hasMindProblem , setHasMindProblem] = useState(false)
+    const [isFill , setIsFill] = useState(true)
     const saveAge = (e:ChangeEvent<HTMLInputElement>)=>{
         setUserAge(+e.target.value)
+    }
+
+    const chekInp = () => {
+        if(userAge != 0){ 
+            startQuiz(userAge , hasMindProblem)
+        }else{
+            setIsFill(false)
+        }
     }
 
     return(
@@ -18,13 +27,14 @@ function UserAge({startQuiz}:RulesProps){
             <h2>لطفا سن خود را وارد کنید</h2>
             <span>
                 <input type="text" onChange={(e)=> saveAge(e)} />
+                {!isFill && <p>لطفا سن را وارد کنید 😊</p>}
             </span>
             <span>
-              <input type="checkbox" onClick={()=>setHasMindProblem(true)} name="" id="" />
+              <input required type="checkbox" onClick={()=>setHasMindProblem(true)} name="" id="" />
               <label>آیا کودک مشکوک به ناتوانی ذهنی است؟</label>
             </span>
             <span>
-                <button type="button" onClick={() => startQuiz(userAge , hasMindProblem)} className='btn'>صفحه بعد</button>
+                <button type="button" onClick={() => chekInp()} className='btn'>صفحه بعد</button>
             </span>
         </div>
     )
@@ -64,8 +74,8 @@ function QuizRules({startQuiz}:RulesProps){
         <>
             {nextStep ? <Notes startQuiz={startQuiz}/> : (<div className='rules'>
                 <h2>لطفاً قواعد اجرای بخش تصویری آزمون را با دقت مطالعه کنید:</h2>
-                <p>در این بخش، پاسخ شرکت کننده بر اساس درست یا غلط بودن، 1 یا 0 نمره می‌گیرد. برای هر سؤال همانند نمونۀ زیر، <br />
-                دو کادر پاسخ در زیر تصویر محرک وجود دارد. شما باید پاسخ‌ شرکت‌کننده را با پاسخ‌های ارائه شده در این کادرها <br />
+                <p>در این بخش، پاسخ شرکت کننده بر اساس درست یا غلط بودن، 1 یا 0 نمره می‌گیرد. برای هر سؤال همانند نمونۀ زیر، 
+                دو کادر پاسخ در زیر تصویر محرک وجود دارد. شما باید پاسخ‌ شرکت‌کننده را با پاسخ‌های ارائه شده در این کادرها 
                 مقایسه کنید و بر اساس آنها، نمرۀ شرکت کننده را مشخص کنید. </p>
                 <span>
                     <button type="button" onClick={()=>setNextStep(true)} className='btn'>صفحه بعد</button>
@@ -90,7 +100,7 @@ export default function Rules({startQuiz}:RulesProps) {
             {showRules ? <QuizRules startQuiz={startQuiz}/> : (
                 <div className='helper'>
                     <h2>راهنمای آزمون</h2>
-                    <p>در این آزمون ابتدا تعدادی تصویر و بعد تعدادی کلمه ارائه می‌شود که آزمون‌دهنده باید معنای آن‌ها را بیان کند. <br /> برای مشاهدۀ راهنمای بخش تصویری آزمون، روی دکمۀ «صفحۀ بعد» کلیک کنید. </p>
+                    <p>در این آزمون ابتدا تعدادی تصویر و بعد تعدادی کلمه ارائه می‌شود که آزمون‌دهنده باید معنای آن‌ها را بیان کند.  برای مشاهدۀ راهنمای بخش تصویری آزمون، روی دکمۀ «صفحۀ بعد» کلیک کنید. </p>
                     <span>
                         <button type="button" onClick={changeState} className='btn'>صفحه بعد</button>
                     </span>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import VisualQuiz from '../Quiz/VisualQuiz'
 import WordsQuizContainer from '../WordsQuizContainer/WordsQuizContainer'
 import End from '../End/End'
@@ -66,7 +66,7 @@ export default function QuizContainer({age,hasProblem}:QuizContainerProps) {
     }
     return (
         <>
-            {end ? <End levelsScores={levelsScores} totalScores={totalScores} finalLevel={finalLevel} finalTrueLevel={finalTrueLevel}/> : nextQuiz ? <WordsQuizContainer startIndex={startIndex} endQuiz={setingWordEndQuiz}/> : <VisualQuiz loadNextStep={loadNextStep} endVisual={endVisual} saveAnswers={saveUserVisualAnswers}/>}
+            {end ? <End/> : nextQuiz ? <WordsQuizContainer startIndex={startIndex} endQuiz={setingWordEndQuiz}/> : <VisualQuiz loadNextStep={loadNextStep} endVisual={endVisual} saveAnswers={saveUserVisualAnswers}/>}
         </>
   )
 }

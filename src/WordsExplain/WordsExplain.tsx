@@ -19,7 +19,7 @@ function LastExplain ({prevExp , startQuiz}:LastExplainProps ){
 
 
     return(
-        <>
+        <div className='words-explain-container'>
             <p>اگر کاملاً متوجه فرآیند انجام آزمون شده‌اید، روی دکمۀ شروع آزمون کلیک کنید. در غیر این صورت از طریق دکمۀ «صفحۀ قبل» به صفحات قبل بازگردید و دستورالعمل اجرای آزمون را مرور کنید.</p>
             <p>برای شروع کافی است جملۀ زیر را به شرکت کننده بگویید:</p>
             <p style={{color:'blue'}}>«من چند کلمه را برایت می‌خوانم. خوب گوش بده و به من بگو معنای آن کلمه چیست؟»</p>
@@ -31,7 +31,7 @@ function LastExplain ({prevExp , startQuiz}:LastExplainProps ){
                     <button type="button" onClick={() => prevExp()} className='btn'>صفحه قبل</button>
                 </span>
             </div>
-        </>
+        </div>
     )
 }
 
@@ -49,7 +49,7 @@ function Exp({prevStep , startQuiz}:ExpProps){
     return (
         <>
             {lastExp ? <LastExplain startQuiz={startQuiz} prevExp={prevExp}/> : (
-                <>
+                <section className='notes'>
                     <p>لازم است کلمه را با صدای بلند و بدون هیچ تغییر و توضیحی برای شرکت کننده بخوانید و پاسخ او را با پاسخ‌های نمونه تطبیق دهید و نمرۀ او را ثبت کنید.</p>
                     <h3>لطفاً در تمام آزمون، نکات زیر را مدنظر داشته باشید:  </h3>
                     <ul className='ul-exp1'>
@@ -79,7 +79,7 @@ function Exp({prevStep , startQuiz}:ExpProps){
                             <button type="button" onClick={() => prevStep()} className='btn'>صفحه قبل</button>
                         </span>
                     </div>
-                </>     
+                </section>     
             )}
         </>
     )
@@ -93,9 +93,9 @@ export default function WordsExplain({startQuiz}:startQuizProps) {
         setShowMoreExp(false)
     }
     return (
-        <div className='words-explain-container'>
+        <>
             {showMoreExp ? <Exp prevStep={prevStep} startQuiz={startQuiz}/> : (
-                <>
+                <div className='words-explain-container'>
                     <h2>بخش تصویری آزمون به پایان رسید. برای انجام بخش کلامی، صفحۀ نمایشگر آزمون را به سوی خود برگردانید. </h2>
                     <p>در بخش کلامی، تعدادی کلمه ارائه می‌شوند که آزمون‌دهنده باید معنای آن‌ها را بیان کند.</p>
                     <p>پاسخی که آزمون‌دهنده ارائه می‌دهد، بر اساس کیفیت و میزان مرتبط بودن از 0 تا 2 نمره می‌گیرد. همانطور که در تصویر نمونه می‌بینید، برای هر کلمه، مثال‌هایی از پاسخ‌های ممکن روی صفحه وجود دارد که شما باید پاسخ شرکت کننده را با آنها تطبیق دهید و نمرۀ او را مشخص کنید.</p>
@@ -103,8 +103,8 @@ export default function WordsExplain({startQuiz}:startQuizProps) {
                     <span>
                         <button type="button" onClick={()=> setShowMoreExp(true)} className="btn">صفحه بعد</button>
                     </span>
-                </>
+                </div>
             )}
-        </div>
+        </>
   )
 }

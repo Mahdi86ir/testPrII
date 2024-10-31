@@ -7,7 +7,8 @@
     gap: 20px;
 }
 .btn{
-    padding: 10px 60px;
+    width: 180px;
+    height: 50px;
     border-radius: 16px;
     border: 1px solid #06c8d9;
     transition: all .5s;
@@ -21,7 +22,7 @@
 }
 .explain-container{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     /* border: 1px solid; */
     /* border-radius: 32px; */
     padding: 10px;
@@ -37,8 +38,9 @@
     gap: 20px;
 }
 .age-container{
-    width: 50%;
-    height: 40%;
+    width: 80%;
+    height: 50%;
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -48,4 +50,42 @@
 }
 .age-container input{
     margin: 10px;
+}
+.explain-container h2{
+    font-size: 30px;
+}
+@media only screen and (max-width:850px) {
+    .explain-container{
+        font-size: 15px;
+    }
+    .explain-container h2{
+        font-size: 35px;
+    }
+}
+@media only screen and (max-width:660px) {
+    .explain-container{
+        font-size: 14px;
+        text-align: justify;
+    }
+    .explain-container h2{
+        font-size: 30px;
+    }
+    .btn{
+        width: 140px;
+        height: 40px;
+    }
+    .age-container{
+        width: 100%;
+    }
+    .age-container label{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width:470px) {
+    .explain-container h2{
+        font-size: 20px;
+    }
+    .explain-container{
+        font-size: 12px;
+    }
 }

@@ -21,7 +21,7 @@ export default function Words({endQuiz , startIndex = 0}:WordsProps) {
     // const [levelsScore , setL]
     // const [userVisualAnswers , setUserVisualAnswers] = useState<string[][]>([])
 
-    let clickSound = new Audio('/src/assets/Ding.MP3')
+    let clickSound = new Audio(import.meta.env.BASE_URL + '/src/assets/Ding.MP3')
 
     useEffect(()=>{
         if(wordsData[dataIndex]){
@@ -85,69 +85,69 @@ export default function Words({endQuiz , startIndex = 0}:WordsProps) {
     return (
         <>
             {showNextWord ? <div className='next-word-alert'>کلمه بعد</div> :(
-                    <section className='words-quiz-container'>
-                        <div className='word-container'>
-                            <h1>سوال {wordsQuiz.qNumber}) {wordsQuiz.word}، {wordsQuiz.word} چیست؟</h1>
+                <section className='words-quiz-container'>
+                    <div className='word-container'>
+                        <h1>سوال {wordsQuiz.qNumber}) {wordsQuiz.word}، {wordsQuiz.word} چیست؟</h1>
+                    </div>
+                    <div className='word-options-container'>
+                        {wordsQuiz.answer0 && (
+                            <>
+                                <div className='word-options'> 
+                                    <ul>
+                                        {wordsQuiz.answer0.map((word: string | string[], index) => {
+                                            if (typeof word === 'string') {
+                                                return <li key={index}>{word}</li>;
+                                            } else if (Array.isArray(word)) {
+                                                return (
+                                                    <>
+                                                        {word.map((orWord: string, newIndex: number) => (
+                                                            <li style={{color:'orange'}} key={newIndex}>{orWord}</li>
+                                                        ))}
+                                                    </>
+                                                )
+                                            }
+                                        })}                    
+                                    </ul>
+                                    <button type="button" onClick={() => calcWordsScore(0 , wordsQuiz.answer0.flat())} className="op-btn2">۰ نمره</button>
+                                </div>
+                            </>
+                        )}
+                        <div className='word-options'> 
+                            <ul>
+                                {wordsQuiz.answer1.map((word: string | string[], index) => {
+                                    if (typeof word === 'string') {
+                                        return <li key={index}>{word}</li>;
+                                    } else if (Array.isArray(word)) {
+                                        return (
+                                            <>
+                                                {word.map((orWord: string, orIndex: number) => (
+                                                    <li style={{color:'orange'}} key={orIndex}>{orWord}</li>
+                                                ))}
+                                            </>
+                                        )
+                                    }
+                                })}
+        
+                            </ul>
+                            <button type="button" onClick={() => calcWordsScore(1 , wordsQuiz.answer1.flat())} className="op-btn2">۱ نمره</button>
                         </div>
-                        <div className='word-options-container'>
-                            {wordsQuiz.answer0 && (
-                                <>
-                                    <div className='word-options'> 
-                                        <ul>
-                                            {wordsQuiz.answer0.map((word: string | string[], index) => {
-                                                if (typeof word === 'string') {
-                                                    return <li key={index}>{word}</li>;
-                                                } else if (Array.isArray(word)) {
-                                                    return (
-                                                        <>
-                                                            {word.map((orWord: string, newIndex: number) => (
-                                                                <li style={{color:'orange'}} key={newIndex}>{orWord}</li>
-                                                            ))}
-                                                        </>
-                                                    )
-                                                }
-                                            })}                    
-                                        </ul>
-                                        <button type="button" onClick={() => calcWordsScore(0 , wordsQuiz.answer0.flat())} className="op-btn2">0 نمره</button>
-                                    </div>
-                                </>
-                            )}
-                            <div className='word-options'> 
-                                <ul>
-                                    {wordsQuiz.answer1.map((word: string | string[], index) => {
-                                        if (typeof word === 'string') {
-                                            return <li key={index}>{word}</li>;
-                                        } else if (Array.isArray(word)) {
-                                            return (
-                                                <>
-                                                    {word.map((orWord: string, orIndex: number) => (
-                                                        <li style={{color:'orange'}} key={orIndex}>{orWord}</li>
-                                                    ))}
-                                                </>
-                                            )
-                                        }
-                                    })}
-            
-                                </ul>
-                                <button type="button" onClick={() => calcWordsScore(1 , wordsQuiz.answer1.flat())} className="op-btn2">1 نمره</button>
-                            </div>
-                            <div className='word-options'> 
-                                <ul>
-                                    {wordsQuiz.answer2.map((word,index) => <li key={index}>{word}</li>)}
-                                </ul>
-                                <button type="button" onClick={() => calcWordsScore(2 , wordsQuiz.answer2.flat())} className="op-btn2">2 نمره</button>
-                            </div>
+                        <div className='word-options'> 
+                            <ul>
+                                {wordsQuiz.answer2.map((word,index) => <li key={index}>{word}</li>)}
+                            </ul>
+                            <button type="button" onClick={() => calcWordsScore(2 , wordsQuiz.answer2.flat())} className="op-btn2">۲ نمره</button>
                         </div>
-                        <div className='alertContainer'>
-                        {showAlert && 
-                        <>
-                            <p>لطفاً به شرکت کننده بگویید: «{wordsQuiz.finalAnswer}» <span style={{color:'white'}}>سپس روی دکمۀ «سؤال بعد» کلیک کنید.</span></p>
-                            <div className='btn-container'>
-                            <button type="button" onClick={() => showNextQuestion()} className='btn'>مرحله بعد</button>
-                            </div>
-                        </>}
+                    </div>
+                    <div className='alertContainer'>
+                    {showAlert && 
+                    <>
+                        <p>لطفاً به شرکت کننده بگویید: «{wordsQuiz.finalAnswer}» <span style={{color:'white'}}>سپس روی دکمۀ «سؤال بعد» کلیک کنید.</span></p>
+                        <div className='btn-container'>
+                        <button type="button" onClick={() => showNextQuestion()} className='btn'>مرحله بعد</button>
                         </div>
-                    </section>
+                    </>}
+                    </div>
+                </section>
             )}
         </>
   )

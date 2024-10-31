@@ -1,21 +1,15 @@
 import React from 'react'
+import './End.css'
 
-interface EndProps{
-  levelsScores:number[],
-  totalScores:number,
-  finalLevel:number,
-  finalTrueLevel:number,
-}
 
-export default function End({levelsScores,totalScores,finalLevel,finalTrueLevel}:EndProps) {
+
+export default function End() {
   return (
-    <div>
-      <div>
-        <p>levelsScore:{levelsScores.map((item,index) => <li key={index+1}>{item}</li>)}</p>
-        <p>totalScore:{totalScores}</p>
-        <p>finalLevel:{finalLevel}</p>
-        <p>finalTrueLevel:{finalTrueLevel}</p>
-      </div>
+    <div className='results'>
+      <h2>اطلاعات شما با موفقیت ثبت شد😊</h2>
+      <span>
+          <button type="button" className='btn'>بازگشت</button>
+      </span>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Words.css'
 import wordsData from '../JSON/WordsQuiz.json'
 
@@ -15,7 +15,6 @@ export default function Words({endQuiz , startIndex = 0}:WordsProps) {
     // const [stepCounter , setStepCounter] = useState(startIndex + 1)
     const [userWordsAnswers , setUserWordsAnswers] = useState<string[][]>([])
     const [showNextWord , setShowNextWord] = useState<boolean>(false)
-    const [ nextQuestion , setNextQuestion] = useState(false)
     const [levelsScore , setLevelsScore] = useState<number[]>([])
     const [endStreek , setEndStreek] = useState(0)
     // const [levelsScore , setL]

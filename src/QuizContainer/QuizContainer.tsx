@@ -47,6 +47,12 @@ export default function QuizContainer({age,hasProblem}:QuizContainerProps) {
     }
     const endVisual = () => {
         setEnd(true)
+        console.log(levelsScores)
+        console.log(wordsAnswers)
+        console.log(visualAnswers)
+        console.log(totalScores)
+        console.log(finalLevel)
+        console.log(finalTrueLevel)
     }
     
     

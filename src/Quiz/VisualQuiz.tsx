@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './VisualQuiz.css'
 import visualQuiz from '../JSON/visualQuestions.json'
 

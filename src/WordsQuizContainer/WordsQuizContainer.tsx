@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import './WordsQuizContainer.css'
 import WordsExplain from '../WordsExplain/WordsExplain'
 import Words from '../Words/Words'

@@ -1,7 +1,7 @@
 {
-  "homepage": "https://Mahdi86ir.github.io/vecksler",
+  "homepage": "https://github.com/Mahdi86ir/testPrII.git",
   "name": "words",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {

@@ -12,10 +12,11 @@ export default function Container() {
         setAge(userAge)
         setHasProblem(hasMindProblem)
     }
-
+    
 
     return (
         <>
+            <p>hi</p>
             {explain ? <Rules startQuiz={startQuiz}/> : <QuizContainer hasProblem={hasProblem}  age={age}/>} 
         </>
   )

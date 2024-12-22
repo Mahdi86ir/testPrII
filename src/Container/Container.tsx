@@ -16,7 +16,7 @@ export default function Container() {
 
     return (
         <>
-            <p>hi</p>
+            {/* salam */}
             {explain ? <Rules startQuiz={startQuiz}/> : <QuizContainer hasProblem={hasProblem}  age={age}/>} 
         </>
   )
